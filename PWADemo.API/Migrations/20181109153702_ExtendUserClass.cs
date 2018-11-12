@@ -13,7 +13,7 @@ namespace PWADemo.API.Migrations
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "Count",
+                name: "Country",
                 table: "Users",
                 nullable: true);
 
@@ -94,7 +94,7 @@ namespace PWADemo.API.Migrations
                 table: "Users");
 
             migrationBuilder.DropColumn(
-                name: "Count",
+                name: "Country",
                 table: "Users");
 
             migrationBuilder.DropColumn(

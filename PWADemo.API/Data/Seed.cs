@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using PWADemo.API.Models;
+using Newtonsoft.Json;
 
 namespace PWADemo.API.Data
 {
@@ -10,9 +10,9 @@ namespace PWADemo.API.Data
         public Seed(DataContext context)
         {
             _context = context;
-
         }
-        public void SeedUsers()
+
+        public void SeedUsers() 
         {
             var userData = System.IO.File.ReadAllText("Data/UserSeedData.json");
             var users = JsonConvert.DeserializeObject<List<User>>(userData);
@@ -27,6 +27,7 @@ namespace PWADemo.API.Data
 
                 _context.Users.Add(user);
             }
+
             _context.SaveChanges();
         }
 

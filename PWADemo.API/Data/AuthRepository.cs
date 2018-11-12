@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using PWADemo.API.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace PWADemo.API.Data
 {
@@ -14,7 +14,7 @@ namespace PWADemo.API.Data
         }
         public async Task<User> Login(string username, string password)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == username);
+            var user = await _context.Users.Include(p => p.Photos).FirstOrDefaultAsync(x => x.Username == username);
 
             if (user == null)
                 return null;

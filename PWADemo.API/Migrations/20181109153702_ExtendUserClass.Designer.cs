@@ -47,7 +47,7 @@ namespace PWADemo.API.Migrations
 
                     b.Property<string>("City");
 
-                    b.Property<string>("Count");
+                    b.Property<string>("Country");
 
                     b.Property<DateTime>("Created");
 

@@ -27,6 +27,8 @@ namespace PWADemo.API.Migrations
 
                     b.Property<bool>("IsMain");
 
+                    b.Property<string>("PublicId");
+
                     b.Property<string>("Url");
 
                     b.Property<int>("UserId");
@@ -45,7 +47,7 @@ namespace PWADemo.API.Migrations
 
                     b.Property<string>("City");
 
-                    b.Property<string>("Count");
+                    b.Property<string>("Country");
 
                     b.Property<DateTime>("Created");
 
@@ -60,6 +62,8 @@ namespace PWADemo.API.Migrations
                     b.Property<string>("KnownAs");
 
                     b.Property<DateTime>("LastActive");
+
+                    b.Property<string>("LookingFor");
 
                     b.Property<byte[]>("PasswordHash");
 

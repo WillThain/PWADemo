@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using PWADemo.API.Data;
 using PWADemo.API.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -19,7 +20,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using AutoMapper;
 
 namespace PWADemo.API
 {
@@ -39,9 +39,10 @@ namespace PWADemo.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddJsonOptions(opt => {
                     opt.SerializerSettings.ReferenceLoopHandling = 
-                    Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                        Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
             services.AddCors();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAutoMapper();
             services.AddTransient<Seed>();
             services.AddScoped<IAuthRepository, AuthRepository>();
@@ -85,7 +86,8 @@ namespace PWADemo.API
 
             // app.UseHttpsRedirection();
             // seeder.SeedUsers();
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseCors(x => x.WithOrigins("http://localhost:4200")
+                .AllowAnyHeader().AllowAnyMethod().AllowCredentials());
             app.UseAuthentication();
             app.UseMvc();
         }

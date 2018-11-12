@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PWADemo.API.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PWADemo.API.Data;
 
 namespace PWADemo.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
-    [ApiController]
-    public class ValuesController : ControllerBase
+    [ApiController]    public class ValuesController : ControllerBase
     {
         private readonly DataContext _context;
         public ValuesController(DataContext context)
