@@ -1,8 +1,9 @@
+using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using PWADemo.API.Data;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
-using PWADemo.API.Data;
 
 namespace PWADemo.API.Helpers
 {
@@ -10,11 +11,13 @@ namespace PWADemo.API.Helpers
     {
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-            var resultsContext =  await next();
+            var resultContext = await next();
 
-            var userId = int.Parse(resultsContext.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            var repo = resultsContext.HttpContext.RequestServices.GetService<IDemoRepository>();
+            var userId = int.Parse(resultContext.HttpContext.User
+                .FindFirst(ClaimTypes.NameIdentifier).Value);
+            var repo = resultContext.HttpContext.RequestServices.GetService<IDemoRepository>();
             var user = await repo.GetUser(userId);
+            user.LastActive = DateTime.Now;
             await repo.SaveAll();
         }
     }

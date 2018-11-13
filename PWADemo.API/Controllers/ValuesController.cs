@@ -11,7 +11,8 @@ namespace PWADemo.API.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
-    [ApiController]    public class ValuesController : ControllerBase
+    [ApiController]    
+    public class ValuesController : ControllerBase
     {
         private readonly DataContext _context;
         public ValuesController(DataContext context)
