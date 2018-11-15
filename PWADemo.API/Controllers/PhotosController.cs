@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
-namespace DatingApp.API.Controllers
+namespace PWADemo.API.Controllers
 {
     [Authorize]
     [Route("api/users/{userId}/photos")]
