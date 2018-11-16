@@ -10,8 +10,8 @@ using PWADemo.API.Data;
 namespace PWADemo.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20181115145437_sqlinitial")]
-    partial class sqlinitial
+    [Migration("20181115162711_azureMigration")]
+    partial class azureMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
