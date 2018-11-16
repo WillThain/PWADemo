@@ -1,0 +1,25 @@
+{"dir" : "ltr",
+    "lang" : "en",
+    "name" : "PWADemo",
+    "scope" : "/home",
+    "display" : "browser",
+    "start_url" : "https://pwademo-app.azurewebsites.net/home",
+    "short_name" : "PWADemo",
+    "theme_color" : "transparent",
+    "description" : "",
+    "orientation" : "any",
+    "background_color" : "transparent",
+    "related_applications" : "",
+    "prefer_related_applications" : "false",
+    "icons" : [
+        {
+            "src": "https://pwademo-app.azurewebsites.net/favicon.ico",
+            "sizes": "16x16 32x32"
+        },
+        {
+            "src": "https://pwademo-app.azurewebsites.net/favicon.ico",
+            "sizes": "16x16 32x32"
+        }
+    ]
+}
+    
